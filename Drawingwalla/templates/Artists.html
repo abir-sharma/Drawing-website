@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block title %}
+Artists
+{% endblock title %}
+{% block body %}
+<div class='container-fluid bg-light text-center py-2'>
+<a class="btn btn-danger" href="/registration"  role="button">New Artists can Register Here</a>
+</div>
+<hr class="mb-4">
+<div class="p-4 p-md-5 mb-4 text-light rounded bg-secondary">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Choose Your Favourite Artist.</h1>
+      <p class="lead my-3">You can have a quick look at some of the basic features like Availablity, City, Time taken, Basic price, Description etc....</p>
+    </div>
+  </div>
+<div class="album py-5 bg-dark">
+    <div class="container">
+      <div class="row">
+      {% for art in arti %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+
+      
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{art.img1.url}}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{art.img2.url}}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{art.img3.url}}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+            <div class="card-body bg-info">
+            <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-dark">{{art.name}}</button>
+                </div>
+            {% if art.availaible %}
+            <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-success">Available</button>
+                </div>
+            {% endif %}
+            {% if not art.availaible %}
+            <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-danger">Not Available</button>
+                </div>
+            {% endif %}
+              <p class="card-text"><b>{{art.desc}}</b></p>
+              <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-primary">{{art.city}}</button>
+                  <button type="button" class="btn btn-sm btn-primary">{{art.time}}</button>
+                </div>
+              <div class="d-flex justify-content-between align-items-center">
+
+                <div class="btn-group">
+  
+                <a class="btn btn-dark" href=https://www.instagram.com/{{art.i_d}}  role="button">{{art.i_d}}</a>
+                </div>
+                
+                <small class="text-dark"><b>From</b><h2>{{art.price}}/-</h2></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+                <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+  
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/static/Untitled.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/static/Untitled.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/static/Untitled.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+            <div class="card-body bg-info">
+            <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-dark">Name</button>
+                </div>
+              <p class="card-text"><b>Description (About yourself and your Work)</b></p>
+              <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-primary">city</button>
+                  <button type="button" class="btn btn-sm btn-primary">time</button>
+                </div>
+              <div class="d-flex justify-content-between align-items-center">
+
+                <div class="btn-group">
+  
+                <a class="btn btn-dark" href="/registration"  role="button">Click here to add yourself.</a>
+                </div>
+                
+                <small class="text-dark"><h2>Price</h2></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+         
+
+      </div>
+    </div>
+  </div>
+  
+  <div class='container-fluid bg-dark text-center py-4'>
+<a class="btn btn-primary" href="/registration"  role="button">New Artists can Register Here</a>
+</div>
+
+{% endblock body %}
